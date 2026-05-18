@@ -3,347 +3,1103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#4CAF50" />
   <title>Privacy Policy — Mornivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
       --green: #4CAF50;
       --green-dark: #2E7D32;
-      --green-soft: #F1F8F2;
-      --ink: #1A1A1A;
-      --ink-soft: #4A4A4A;
-      --muted: #7A7A7A;
-      --border: #E5E7E5;
-      --bg: #FFFFFF;
+      --green-mid: #388E3C;
+      --green-glow: rgba(76,175,80,0.18);
+      --orange: #FF7043;
+      --gold: #E8A020;
+      --ink: #0D1A0E;
+      --ink-soft: #3A4A3B;
+      --muted: #7A8A7B;
+      --bg: #F4F8F4;
+      --card: #FFFFFF;
+      --border: rgba(76,175,80,0.15);
     }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      margin: 0;
-      padding: 0;
+    html { scroll-behavior: smooth; }
+
+    body {
       background: var(--bg);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                   "Helvetica Neue", Arial, sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    .hero {
-      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
-      color: #fff;
-      padding: 56px 24px 48px;
-      text-align: center;
+    /* ─── HEADER ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 40px;
+      background: rgba(244,248,244,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero .logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.18);
-      display: inline-flex;
+    .site-header .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-family: 'Clash Display', sans-serif;
       font-weight: 700;
-      margin-bottom: 16px;
+      font-size: 17px;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(76,175,80,0.35);
+    }
+
+    .site-header .brand {
+      font-family: 'Clash Display', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .site-header .pill {
+      margin-left: auto;
+      background: var(--green-glow);
+      color: var(--green-dark);
+      border: 1px solid rgba(76,175,80,0.3);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      padding: 96px 40px 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% -10%, rgba(76,175,80,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 90%, rgba(232,160,32,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 30% 40% at 10% 80%, rgba(255,112,67,0.08) 0%, transparent 60%);
+    }
+
+    /* floating app screenshots in hero */
+    .hero-phones {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-phone {
+      position: absolute;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+      opacity: 0.18;
+      transform: rotate(-8deg);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .hero-phone:nth-child(1) {
+      width: 120px;
+      top: 5%;
+      left: 3%;
+      transform: rotate(-12deg);
+      opacity: 0.14;
+    }
+
+    .hero-phone:nth-child(2) {
+      width: 110px;
+      top: 15%;
+      right: 4%;
+      transform: rotate(10deg);
+      opacity: 0.14;
+    }
+
+    .hero-phone:nth-child(3) {
+      width: 100px;
+      bottom: 5%;
+      left: 7%;
+      transform: rotate(6deg);
+      opacity: 0.1;
+    }
+
+    .hero-phone:nth-child(4) {
+      width: 105px;
+      bottom: 8%;
+      right: 6%;
+      transform: rotate(-7deg);
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 28px;
       backdrop-filter: blur(8px);
     }
 
+    .hero-eyebrow span { font-size: 14px; }
+
     .hero h1 {
-      margin: 0 0 8px;
-      font-size: 32px;
+      font-family: 'Clash Display', sans-serif;
+      font-size: clamp(44px, 7vw, 88px);
       font-weight: 700;
-      letter-spacing: -0.5px;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--ink);
+      margin-bottom: 20px;
     }
 
-    .hero p {
-      margin: 0;
-      opacity: 0.92;
-      font-size: 15px;
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
+    .hero-sub {
+      font-size: 17px;
+      color: var(--ink-soft);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      font-weight: 300;
     }
 
-    .meta {
-      background: var(--green-soft);
-      border-left: 3px solid var(--green);
-      padding: 14px 16px;
+    .hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border);
       border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 13px;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-meta .dot { color: var(--green); font-size: 18px; line-height: 1; }
+
+    /* ─── APP SCREENSHOTS STRIP ─── */
+    .screenshots-strip {
+      padding: 0 40px 60px;
+      overflow: hidden;
+    }
+
+    .screenshots-inner {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .screenshots-inner::-webkit-scrollbar { display: none; }
+
+    .screenshot-item {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid rgba(76,175,80,0.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      width: 160px;
+      height: 320px;
+      background: #e8f0e8;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .screenshot-item:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 48px rgba(76,175,80,0.2);
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ─── SIDEBAR / TOC ─── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-left: 14px;
+    }
+
+    .toc-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toc-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 10px;
       font-size: 14px;
-      color: var(--ink-soft);
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      color: var(--green-dark);
-      font-size: 22px;
-      font-weight: 700;
-      margin: 40px 0 12px;
-      letter-spacing: -0.2px;
-    }
-
-    h2:first-of-type { margin-top: 0; }
-
-    h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 20px 0 8px;
-      color: var(--ink);
-    }
-
-    p, li {
-      color: var(--ink-soft);
-    }
-
-    ul {
-      padding-left: 22px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    a {
-      color: var(--green-dark);
+      font-weight: 400;
+      color: var(--muted);
       text-decoration: none;
-      border-bottom: 1px solid rgba(46,125,50,0.3);
-      transition: border-color 0.15s;
+      transition: all 0.2s;
+      border: 1px solid transparent;
     }
 
-    a:hover {
-      border-bottom-color: var(--green-dark);
+    .toc-nav a:hover {
+      background: rgba(76,175,80,0.08);
+      color: var(--green-dark);
+      border-color: rgba(76,175,80,0.15);
     }
 
-    .toc {
-      background: #FAFBFA;
+    .toc-nav a .num {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(76,175,80,0.5);
+      min-width: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sidebar-callout {
+      margin-top: 24px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      border-radius: 16px;
+      padding: 20px 16px;
+      color: white;
+    }
+
+    .sidebar-callout .icon { font-size: 24px; margin-bottom: 8px; }
+
+    .sidebar-callout p {
+      font-size: 13px;
+      line-height: 1.5;
+      opacity: 0.9;
+      color: white;
+    }
+
+    .sidebar-callout strong { color: white; display: block; margin-bottom: 4px; font-size: 14px; }
+
+    /* ─── CONTENT ─── */
+    .content {}
+
+    .summary-card {
+      background: linear-gradient(135deg, rgba(76,175,80,0.08), rgba(46,125,50,0.05));
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary-card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(76,175,80,0.15), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .summary-card h3 {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+
+    .summary-card p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      position: relative;
+    }
+
+    .summary-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(76,175,80,0.2);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green-dark);
+    }
+
+    /* sections */
+    .section {
+      margin-bottom: 52px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Clash Display', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(76,175,80,0.3);
+    }
+
+    .section h2 {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .section h3 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--green-dark);
+      margin: 24px 0 10px;
+    }
+
+    .section p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .data-item {
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 40px;
+      padding: 14px 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .toc-title {
+    .data-item:hover {
+      border-color: rgba(76,175,80,0.3);
+      box-shadow: 0 4px 16px rgba(76,175,80,0.08);
+    }
+
+    .data-item .di-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 3px;
+    }
+
+    .data-item .di-desc {
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
       color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      line-height: 1.4;
     }
 
-    .toc ol {
-      margin: 0;
-      padding-left: 20px;
-      column-count: 2;
-      column-gap: 24px;
+    /* Partners */
+    .partners-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .toc li {
-      margin-bottom: 6px;
-      break-inside: avoid;
+    .partner-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      transition: all 0.2s;
     }
 
-    .toc a {
-      border-bottom: none;
-      color: var(--ink-soft);
+    .partner-row:hover {
+      border-color: rgba(76,175,80,0.3);
+      transform: translateX(4px);
+    }
+
+    .partner-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green-glow), rgba(46,125,50,0.1));
+      border: 1px solid rgba(76,175,80,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .partner-info .pi-name {
       font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
     }
 
-    .toc a:hover { color: var(--green-dark); }
+    .partner-info .pi-role {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
 
-    .callout {
-      background: var(--green-soft);
-      border: 1px solid rgba(76,175,80,0.25);
+    .partner-info a {
+      font-size: 12px;
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .partner-info a:hover { text-decoration: underline; }
+
+    /* Rights list */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .right-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 16px 20px;
-      margin: 20px 0;
-      font-size: 15px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--ink-soft);
     }
 
-    .callout strong { color: var(--green-dark); }
+    .right-item .ri-icon {
+      color: var(--green);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
 
+    /* Deletion steps */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 12px 0;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), transparent);
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .step-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green-dark);
+      flex-shrink: 0;
+      z-index: 1;
+      font-family: 'Clash Display', sans-serif;
+    }
+
+    .step-text strong {
+      display: block;
+      font-size: 14px;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .step-text span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* No collect banner */
+    .no-collect {
+      background: #FFF8F0;
+      border: 1px solid rgba(255,112,67,0.2);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-top: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .no-collect .nc-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+    .no-collect p {
+      font-size: 14px;
+      color: #5D3A1A;
+      margin: 0;
+    }
+
+    /* Security points */
+    .security-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .security-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    .security-item .si-icon { font-size: 18px; }
+
+    /* divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0;
+    }
+
+    /* Contact section */
+    .contact-card {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      border-radius: 24px;
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .contact-card::after {
+      content: '';
+      position: absolute;
+      right: 30px;
+      bottom: -50px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .contact-text h3 {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .contact-text p { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 300; }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--green-dark);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    /* ─── FOOTER ─── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 32px 24px;
-      text-align: center;
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       color: var(--muted);
       font-size: 13px;
     }
 
-    footer a { color: var(--green-dark); }
+    footer a { color: var(--green-dark); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 600px) {
-      .hero { padding: 40px 20px 36px; }
-      .hero h1 { font-size: 26px; }
-      main { padding: 32px 20px 64px; }
-      h2 { font-size: 19px; }
-      .toc ol { column-count: 1; }
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content > * {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+    .section {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 0 20px 80px;
+        gap: 32px;
+      }
+
+      .sidebar {
+        position: static;
+        display: none;
+      }
+
+      .hero { padding: 60px 20px 48px; }
+      .screenshots-strip { padding: 0 20px 40px; }
+
+      .data-grid, .rights-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="logo">M</div>
-    <h1>Privacy Policy</h1>
-    <p>Mornivo — AI-Powered Calorie Tracking</p>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-mark">M</div>
+    <span class="brand">Mornivo</span>
+    <span class="pill">Privacy Policy</span>
   </header>
 
-  <main>
-    <div class="meta">
-      <strong>Effective date:</strong> January 5, 2026 &nbsp;·&nbsp;
-      <strong>Last updated:</strong> January 5, 2026
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-phones">
+      <img class="hero-phone" src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/1.png" alt="" />
+      <img class="hero-phone" src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/2.png" alt="" />
+      <img class="hero-phone" src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/3.png" alt="" />
+      <img class="hero-phone" src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/4.png" alt="" />
     </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span>🌿</span> AI-Powered Calorie Tracking</div>
+      <h1>Your <em>Privacy</em><br>Comes First.</h1>
+      <p class="hero-sub">We collect only what's needed to make Mornivo work for you — no ads, no data selling, ever.</p>
+      <div class="hero-meta">
+        <span class="dot">●</span>
+        <span>Effective January 5, 2026</span>
+        <span>&nbsp;·&nbsp;</span>
+        <span>Last updated January 5, 2026</span>
+      </div>
+    </div>
+  </section>
 
-    <div class="toc">
-      <div class="toc-title">Contents</div>
-      <ol>
-        <li><a href="#intro">Introduction</a></li>
-        <li><a href="#info">Information we collect</a></li>
-        <li><a href="#use">How we use information</a></li>
-        <li><a href="#share">Who we share with</a></li>
-        <li><a href="#retention">Retention &amp; deletion</a></li>
-        <li><a href="#security">Security</a></li>
-        <li><a href="#rights">Your rights</a></li>
-        <li><a href="#children">Children</a></li>
-        <li><a href="#changes">Changes</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <!-- APP SCREENSHOTS STRIP -->
+  <div class="screenshots-strip">
+    <div class="screenshots-inner">
+      <div class="screenshot-item">
+        <img src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/1.png" alt="Mornivo app screen 1" />
+      </div>
+      <div class="screenshot-item">
+        <img src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/2.png" alt="Mornivo app screen 2" />
+      </div>
+      <div class="screenshot-item">
+        <img src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/3.png" alt="Mornivo app screen 3" />
+      </div>
+      <div class="screenshot-item">
+        <img src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/4.png" alt="Mornivo app screen 4" />
+      </div>
+      <div class="screenshot-item">
+        <img src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/5.png" alt="Mornivo app screen 5" />
+      </div>
+      <div class="screenshot-item">
+        <img src="https://raw.githubusercontent.com/ResonanceHybrid/ResonanceHybrid.github.io/main/6.png" alt="Mornivo app screen 6" />
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <p class="toc-label">Contents</p>
+      <ol class="toc-nav">
+        <li><a href="#intro"><span class="num">01</span>Introduction</a></li>
+        <li><a href="#info"><span class="num">02</span>What we collect</a></li>
+        <li><a href="#use"><span class="num">03</span>How we use it</a></li>
+        <li><a href="#share"><span class="num">04</span>Who we share with</a></li>
+        <li><a href="#retention"><span class="num">05</span>Retention & deletion</a></li>
+        <li><a href="#security"><span class="num">06</span>Security</a></li>
+        <li><a href="#rights"><span class="num">07</span>Your rights</a></li>
+        <li><a href="#children"><span class="num">08</span>Children</a></li>
+        <li><a href="#changes"><span class="num">09</span>Changes</a></li>
+        <li><a href="#contact"><span class="num">10</span>Contact</a></li>
       </ol>
-    </div>
 
-    <h2 id="intro">1. Introduction</h2>
-    <p>
-      Mornivo (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;the app&rdquo;) is an
-      AI-powered calorie and nutrition tracker. This policy explains what
-      data we collect, why we collect it, who we share it with, and the
-      choices you have. We&rsquo;ve kept it short and specific — no
-      generic legalese padding.
-    </p>
+      <div class="sidebar-callout">
+        <div class="icon">🛡️</div>
+        <strong>Our promise</strong>
+        <p>No ads. No data sales. Delete everything from the app, anytime.</p>
+      </div>
+    </aside>
 
-    <div class="callout">
-      <strong>The short version:</strong> we collect the minimum needed to
-      let you log meals, analyze food photos with AI, sync across devices,
-      and process subscriptions. We don&rsquo;t sell your data, don&rsquo;t
-      run ad networks, and you can delete everything from inside the app.
-    </div>
+    <!-- CONTENT -->
+    <main class="content">
 
-    <h2 id="info">2. Information we collect</h2>
+      <!-- SUMMARY CARD -->
+      <div class="summary-card">
+        <h3>✦ The short version</h3>
+        <p>We collect the minimum needed to let you log meals, analyze food photos with AI, sync across devices, and process subscriptions. We don't sell your data, don't run ad networks, and you can delete everything from inside the app.</p>
+        <div class="summary-badges">
+          <span class="badge">🚫 No ads</span>
+          <span class="badge">🔒 No data selling</span>
+          <span class="badge">🗑️ Delete anytime</span>
+          <span class="badge">🤖 No AI training on your data</span>
+        </div>
+      </div>
 
-    <h3>Account &amp; identity</h3>
-    <ul>
-      <li><strong>Anonymous user ID</strong> — assigned automatically on first launch so you can use the app without signing up.</li>
-      <li><strong>Email address</strong> — only if you create an account or sign in with Google.</li>
-      <li><strong>Authentication tokens</strong> — issued by our auth provider (Supabase) and stored securely on your device.</li>
-    </ul>
+      <!-- 1. INTRO -->
+      <div class="section" id="intro">
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <h2>Introduction</h2>
+        </div>
+        <p>Mornivo ("we", "us", "the app") is an AI-powered calorie and nutrition tracker. This policy explains what data we collect, why we collect it, who we share it with, and the choices you have. We've kept it short and specific — no generic legalese padding.</p>
+      </div>
 
-    <h3>Health &amp; activity data</h3>
-    <ul>
-      <li><strong>Meal logs</strong> — food items, calories, macros (protein, carbs, fat), and meal type you record.</li>
-      <li><strong>Food photos</strong> — images you take or upload for AI analysis. Stored in our cloud bucket so they can be re-displayed in your history.</li>
-      <li><strong>Exercise &amp; water intake</strong> — what you log manually.</li>
-      <li><strong>Goals</strong> — daily targets you set (calories, macros).</li>
-    </ul>
+      <!-- 2. INFO -->
+      <div class="section" id="info">
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <h2>Information we collect</h2>
+        </div>
 
-    <h3>Usage &amp; technical data</h3>
-    <ul>
-      <li><strong>AI credit usage</strong> — a per-account counter so we can enforce free-tier limits.</li>
-      <li><strong>Subscription status</strong> — whether you have an active Pro entitlement, managed by RevenueCat.</li>
-      <li><strong>Device platform</strong> — iOS or Android, used to deliver platform-correct features.</li>
-    </ul>
+        <h3>Account & Identity</h3>
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="di-label">Anonymous User ID</div>
+            <div class="di-desc">Assigned automatically on first launch — no sign-up needed.</div>
+          </div>
+          <div class="data-item">
+            <div class="di-label">Email Address</div>
+            <div class="di-desc">Only if you create an account or sign in with Google.</div>
+          </div>
+        
+        </div>
 
-    <p><strong>What we don&rsquo;t collect:</strong> we do not collect your
-    precise location, contacts, calendar, microphone audio, or browsing
-    history. We do not use third-party advertising or analytics SDKs.</p>
+        <h3>Health & Activity Data</h3>
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="di-label">Meal Logs</div>
+            <div class="di-desc">Food items, calories, macros (protein, carbs, fat), and meal type.</div>
+          </div>
+          <div class="data-item">
+            <div class="di-label">Food Photos</div>
+            <div class="di-desc">Images for AI analysis, stored so they appear in your history.</div>
+          </div>
+          <div class="data-item">
+            <div class="di-label">Exercise & Water</div>
+            <div class="di-desc">What you log manually in the app.</div>
+          </div>
+          <div class="data-item">
+            <div class="di-label">Goals</div>
+            <div class="di-desc">Your daily calorie and macro targets.</div>
+          </div>
+        </div>
 
-    <h2 id="use">3. How we use information</h2>
-    <ul>
-      <li>To analyze meal photos and return nutrition estimates via our AI provider.</li>
-      <li>To save your meal history and sync it across the devices you sign in on.</li>
-      <li>To enforce free-tier AI credit limits and unlock Pro features for paid subscribers.</li>
-      <li>To authenticate you and protect your account.</li>
-      <li>To respond to support requests you send us.</li>
-    </ul>
-    <p>We do not use your data to train AI models, and we do not sell or
-    rent it to anyone.</p>
+        <h3>Usage & Technical</h3>
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="di-label">AI Credit Usage</div>
+            <div class="di-desc">A per-account counter to enforce free-tier limits.</div>
+          </div>
+          <div class="data-item">
+            <div class="di-label">Subscription Status</div>
+            <div class="di-desc">Whether you have an active Pro entitlement.</div>
+          </div>
+          <div class="data-item">
+            <div class="di-label">Device Platform</div>
+            <div class="di-desc">iOS or Android, used to deliver platform-correct features.</div>
+          </div>
+        </div>
 
-    <h2 id="share">4. Who we share with</h2>
-    <p>We only share the minimum data needed with the following processors:</p>
-    <ul>
-      <li><strong>Supabase</strong> (database, authentication, file storage) — stores your meal logs, activity logs, food images, and account credentials. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy</a>.</li>
-      <li><strong>Groq</strong> (AI provider) — receives the food photo and a short text prompt to return nutrition estimates. Images are processed transiently. <a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener">Groq privacy</a>.</li>
-      <li><strong>RevenueCat</strong> (subscription management) — receives your anonymous user ID and purchase receipts to validate Pro entitlement. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat privacy</a>.</li>
-      <li><strong>Google Sign-In</strong> (optional) — if you sign in with Google, your Google email is shared with us. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy</a>.</li>
-      <li><strong>Apple App Store / Google Play</strong> — payments for subscriptions are processed entirely by Apple or Google. We never see your card or banking details.</li>
-    </ul>
-    <p>We may also disclose information if required by law (subpoena, court
-    order) or to protect the rights and safety of users.</p>
+        <div class="no-collect">
+          <span class="nc-icon">🚫</span>
+          <p><strong>What we don't collect:</strong> precise location, contacts, calendar, microphone audio, browsing history. We do not use third-party advertising or analytics SDKs.</p>
+        </div>
+      </div>
 
-    <h2 id="retention">5. Retention &amp; deletion</h2>
-    <p>Your data is retained as long as your account exists. You can
-    delete <em>everything</em> at any time from inside the app:</p>
-    <ul>
-      <li>Open <strong>Profile → Clear My Data</strong> to permanently delete all meals, photos, and reset your AI credits.</li>
-      <li>To delete your entire account (including email and authentication record), email us at the address below and we&rsquo;ll process it within 30 days.</li>
-    </ul>
-    <p>Anonymous sessions that have never been signed up are automatically purged after a period of inactivity.</p>
+      <!-- 3. USE -->
+      <div class="section" id="use">
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <h2>How we use information</h2>
+        </div>
+        <div class="data-grid">
+          <div class="data-item"><div class="di-label">Meal Analysis</div><div class="di-desc">Analyze photos and return nutrition estimates via AI.</div></div>
+          <div class="data-item"><div class="di-label">Cross-device Sync</div><div class="di-desc">Save your history and sync it across signed-in devices.</div></div>
+          <div class="data-item"><div class="di-label">Pro Features</div><div class="di-desc">Enforce free-tier limits and unlock Pro for paid subscribers.</div></div>
+          <div class="data-item"><div class="di-label">Authentication</div><div class="di-desc">Authenticate you and protect your account.</div></div>
+          <div class="data-item"><div class="di-label">Support</div><div class="di-desc">Respond to support requests you send us.</div></div>
+        </div>
+        <p style="margin-top:16px;">We do not use your data to train AI models, and we do not sell or rent it to anyone.</p>
+      </div>
 
-    <h2 id="security">6. Security</h2>
-    <p>All data is transmitted over HTTPS (TLS 1.2+). Database access is
-    protected by row-level security so users can only read and write their
-    own rows. Passwords are hashed by our auth provider (bcrypt), and
-    authentication tokens are stored in your device&rsquo;s secure
-    storage. No system is ever 100% impenetrable, but we treat security
-    failures as the most serious class of bug.</p>
 
-    <h2 id="rights">7. Your rights</h2>
-    <p>Depending on where you live, you may have the right to:</p>
-    <ul>
-      <li>Access the personal data we hold about you.</li>
-      <li>Correct inaccurate data.</li>
-      <li>Request deletion of your data.</li>
-      <li>Object to or restrict how we process it.</li>
-      <li>Receive a portable copy of your data.</li>
-      <li>Withdraw consent at any time.</li>
-    </ul>
-    <p>To exercise any of these, email us — we&rsquo;ll respond within
-    30 days. If you&rsquo;re in the EU/UK, you also have the right to
-    lodge a complaint with your local data protection authority.</p>
 
-    <h2 id="children">8. Children</h2>
-    <p>Mornivo is not directed to children under 13 (or under 16 in the
-    EU). We do not knowingly collect personal information from children.
-    If you believe a child has provided us with data, contact us and
-    we&rsquo;ll delete it.</p>
+      <!-- 5. RETENTION -->
+      <div class="section" id="retention">
+        <div class="section-header">
+          <div class="section-num">05</div>
+          <h2>Retention & deletion</h2>
+        </div>
+        <p>Your data is retained as long as your account exists. You can delete everything at any time:</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-dot">1</div>
+            <div class="step-text">
+              <strong>Profile → Clear My Data</strong>
+              <span>Permanently deletes all meals, photos, and resets your AI credits instantly.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-dot">2</div>
+            <div class="step-text">
+              <strong>Full account deletion</strong>
+              <span>Email us and we'll delete your email and auth record within 30 days.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-dot">3</div>
+            <div class="step-text">
+              <strong>Anonymous sessions</strong>
+              <span>Sessions that were never signed up are automatically purged after inactivity.</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <h2 id="changes">9. Changes to this policy</h2>
-    <p>We may update this policy as the app evolves. When we make
-    material changes, we&rsquo;ll update the &ldquo;Last updated&rdquo;
-    date at the top, and — for significant changes — show an in-app
-    notice the next time you open Mornivo.</p>
+      <!-- 6. SECURITY -->
+      <div class="section" id="security">
+        <div class="section-header">
+          <div class="section-num">06</div>
+          <h2>Security</h2>
+        </div>
+        <div class="security-list">
+          <div class="security-item"> All data transmitted over HTTPS (TLS 1.2+)</div>
+          <div class="security-item"></span> Row-level security: users only read and write their own rows</div>
+          <div class="security-item"></span> Passwords hashed by Supabase (bcrypt)</div>
+          <div class="security-item"></span> Auth tokens stored in device's secure storage</div>
+          <div class="security-item"></span> Security failures treated as the most serious class of bug</div>
+        </div>
+      </div>
 
-    <h2 id="contact">10. Contact</h2>
-    <p>Questions, deletion requests, or anything else:</p>
-    <ul>
-      <li><strong>Email:</strong> <a href="mailto:support@mornivo.app">support@mornivo.app</a></li>
-    </ul>
-  </main>
+      <!-- 7. RIGHTS -->
+      <div class="section" id="rights">
+        <div class="section-header">
+          <div class="section-num">07</div>
+          <h2>Your rights</h2>
+        </div>
+        <p>Depending on where you live, you may have the right to:</p>
+        <div class="rights-grid">
+          <div class="right-item"><span class="ri-icon">✓</span>Access your personal data</div>
+          <div class="right-item"><span class="ri-icon">✓</span>Correct inaccurate data</div>
+          <div class="right-item"><span class="ri-icon">✓</span>Request deletion</div>
+          <div class="right-item"><span class="ri-icon">✓</span>Object to or restrict processing</div>
+          <div class="right-item"><span class="ri-icon">✓</span>Receive a portable copy</div>
+          <div class="right-item"><span class="ri-icon">✓</span>Withdraw consent at any time</div>
+        </div>
+        <p style="margin-top:14px;">To exercise any of these, email us — we'll respond within 30 days. EU/UK users also have the right to lodge a complaint with their local data protection authority.</p>
+      </div>
 
+      <!-- 8. CHILDREN -->
+      <div class="section" id="children">
+        <div class="section-header">
+          <div class="section-num">08</div>
+          <h2>Children</h2>
+        </div>
+        <p>Mornivo is not directed to children under 13 (or under 16 in the EU). We do not knowingly collect personal information from children. If you believe a child has provided us with data, contact us and we'll delete it promptly.</p>
+      </div>
+
+      <!-- 9. CHANGES -->
+      <div class="section" id="changes">
+        <div class="section-header">
+          <div class="section-num">09</div>
+          <h2>Changes to this policy</h2>
+        </div>
+        <p>We may update this policy as the app evolves. When we make material changes, we'll update the "Last updated" date at the top, and — for significant changes — show an in-app notice the next time you open Mornivo.</p>
+      </div>
+
+      <!-- 10. CONTACT -->
+      <div class="section" id="contact">
+        <div class="section-header">
+          <div class="section-num">10</div>
+          <h2>Contact</h2>
+        </div>
+        <div class="contact-card">
+          <div class="contact-text">
+            <h3>Questions or requests?</h3>
+            <p>We're happy to help with deletion requests, data access, or anything else.</p>
+          </div>
+          <a href="mailto:support@mornivo.app" class="contact-btn">
+            ✉️ mornivo.app@gmail.com
+          </a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
-    &copy; 2026 Mornivo &nbsp;·&nbsp;
-    <a href="../terms/">Terms of Service</a> &nbsp;·&nbsp;
-    <a href="mailto:support@mornivo.app">Contact</a>
+    <span>© 2026 Mornivo</span>
+    <span>
+      <a href="../terms/">Terms of Service</a> &nbsp;·&nbsp;
+      <a href="mailto:support@mornivo.app">mornivo.app@gmail.com</a>
+    </span>
   </footer>
+
 </body>
 </html>
